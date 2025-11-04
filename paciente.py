@@ -4,6 +4,9 @@ class Paciente(Persona):
     def __init__(self, nombre, apellido, dni, fechaNac, email, password, nroDeHistoriaClinica):
         super().__init__(nombre, apellido, dni, fechaNac, email, password)
         self._nroDeHistoriaClinica = nroDeHistoriaClinica
+
+    def get_nro_historia(self):
+        return self._nroDeHistoriaClinica    
     
     def login(self, email, password):
         if self._email == email and self._password == password:
