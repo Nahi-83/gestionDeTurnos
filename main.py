@@ -1,39 +1,34 @@
-def menu():
+from hospital import Hospital
+from medico import Medico
+from paciente import Paciente
+from turno import Turno
+
+def main():
+    hospital = Hospital("Hospital Zonal Esquel", "Av. Fontana 555")
+
+    medicos = [
+        Medico("Lucía", "Gómez", "33222111", "1980-05-12", "lucia@hospital.com", "1234", "8-16", "Pediatría", "M123")]
     pacientes = []
-    medico = []
-    turno = []
+    turnos = []
 
     while True:
         print("\n--- MENÚ PRINCIPAL ---")
-        print("1. Registro de usuario")
+        print("1. Registrar paciente")
         print("2. Iniciar sesión")
         print("3. Salir")
 
-        opcion = input("Seleccione una opción: ")
+        opcion = input("Opción: ")
 
         if opcion == "1":
             nombre = input("Nombre: ")
             apellido = input("Apellido: ")
             dni = input("DNI: ")
-            fecha_nac = input("Fecha de nacimiento: ")
+            fecha = input("Fecha de nacimiento: ")
             email = input("Email: ")
             password = input("Contraseña: ")
-            hc = input("N° Historia Clínica: ")
-            paciente = paciente(nombre, apellido, dni, fecha_nac, email, password, hc)
-            pacientes.append(paciente)
-            print("Registro exitoso!")
+            historiaClinica = input("Historia clínica: ")
+            nuevo = Paciente(nombre, apellido, dni, fecha, email, password, historiaClinica)
+            pacientes.append(nuevo)
+            print(f"Paciente {nombre} registrado.")
 
-        elif opcion == "2":
-            email = input("Email: ")
-            password = input("Contraseña: ")
-            paciente_encontrado = None
-            for p in pacientes:
-                if p.login(email, password):
-                    paciente_encontrado = p
-                    break
-            if paciente_encontrado:
-                print(f"Bienvenido {paciente_encontrado._nombre}")
-            else:
-                print("Credenciales incorrectas.")
-        elif opcion == "3":
-            break
+        

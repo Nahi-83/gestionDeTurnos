@@ -1,3 +1,5 @@
+from consultorio import Consultorio
+
 class Hospital:
     def __init__(self, nombre, direccion, cantConsultorios):
         self._nombre = nombre 
