@@ -7,7 +7,7 @@ def main():
     hospital = Hospital("Hospital Zonal Esquel", "Av. Fontana 555")
 
     medicos = [
-        Medico("Lucía", "Gómez", "33222111", "1980-05-12", "lucia@hospital.com", "1234", "8-16", "Pediatría", "M123")]
+        Medico("Lucía", "Gómez", "33222111", "1980-05-12", "lucia@gmail.com", "1234", "8-16", "Pediatría", "M123")]
     pacientes = []
     turnos = []
 
