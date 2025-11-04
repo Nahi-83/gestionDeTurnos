@@ -1,6 +1,12 @@
 from persona import Persona 
 
 class Medico(Persona):
-    def __init__(self, nombre, apellido, dni, fechaNac, email, password, horarioDeAtencion,):
+    def __init__(self, nombre, apellido, dni, fechaNac, email, password, horarioDeAtencion, profesion, matricula):
         super().__init__(nombre, apellido, dni, fechaNac, email, password)
-        self._horarioDeAtencion
+        self._horarioDeAtencion = horarioDeAtencion
+        self._profesion = profesion
+        self._matricula = matricula
+    
+    def mostrarDatos(self):
+        datosPrincipales = super().mostrarDatos()
+        return f"{datosPrincipales} Profesión: {self._profesion} Matrícula: {self._matricula}"
