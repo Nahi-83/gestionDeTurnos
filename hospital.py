@@ -1,4 +1,4 @@
-class Medico:
+class Hospital:
     def __init__(self, nombre, direccion, cantConsultorios):
         self._nombre = nombre 
         self._direccion = direccion
