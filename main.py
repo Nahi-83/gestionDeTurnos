@@ -1,7 +1,6 @@
 from medico import Medico
 from paciente import Paciente
 from turno import Turno
-from hospital import Hospital
 
 print("GESTOR DE TURNOS DEL HOSPITAL")
 
