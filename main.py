@@ -4,14 +4,13 @@ from turno import Turno
 
 print("GESTOR DE TURNOS DEL HOSPITAL")
 
-#Médicos disponibles
 medicos = [
     Medico("Lucía", "Gómez", "33222111", "1980-05-12", "lucia@gmail.com", "1234", "8-16", "Pediatría", "M123"),
     Medico("Marcos", "López", "31222444", "1975-03-20", "marcos@gmail.com", "1234", "9-17", "Clínico", "M456")
 ]
 
-pacientes = []  # Lista de pacientes registrados
-turnos = []     # Lista de turnos
+pacientes = []  
+turnos = []     
 
 while True:
     print("\nMENÚ")
@@ -34,7 +33,6 @@ while True:
         pacientes.append(nuevoPaciente)
         print(f"Paciente {nombre} registrado correctamente.")
 
-    # Iniciar sesión
     elif opcion == "2":
         email = input("Email: ")
         password = input("Contraseña: ")
@@ -53,13 +51,12 @@ while True:
 
             gestionTurnos = input("Elegí una opción: ")
 
-            # Agendar turno
             if gestionTurnos == "1":
-                print("\n--- MÉDICOS DISPONIBLES ---")
+                print("\nMédicos disponibles")
                 for i, medicosDis in enumerate(medicos):
                     print(f"{i+1}. {medicosDis.get_profesion()} - {medicosDis.get_nombre()}")
 
-                seleccion = int(input("Seleccione el número del médico: ")) - 1
+                seleccion = int(input("Seleccione el médico de su preferencia: ")) - 1
 
                 if 0 <= seleccion < len(medicos):
                     fecha = input("Fecha del turno (dd/mm/aaaa): ")
@@ -68,11 +65,10 @@ while True:
                     turnos.append(turnoSacado)
                     turnoSacado.confirmarTurno()
                 else:
-                    print("Opción inválida.")
+                    print("Opción incorrecta.")
 
-            # Ver turnos
             elif gestionTurnos == "2":
-                print("\n--- TUS TURNOS ---")
+                print("\nTus turnos")
                 turnos_paciente = [turnoSacado for turnoSacado in turnos if turnoSacado._paciente == pacienteEncontrado]
                 if turnos_paciente:
                     for turnoSacado in turnos_paciente:
@@ -80,20 +76,18 @@ while True:
                 else:
                     print("No tenés turnos registrados.")
             
-            # Salir del submenú
             elif gestionTurnos == "3":
                 print("Sesión cerrada.")
             
             else:
-                print("Opción inválida.")
+                print("Opción incorrecta.")
 
         else:
             print("Email o contraseña incorrectos.")
 
-    # Salir del programa
     elif opcion == "3":
         print("¡Gracias por usar el sistema de turnos!")
         break
 
     else:
-        print("Opción inválida. Intentá otra vez.")
+        print("Opción incorrecta. Intentá otra vez.")
