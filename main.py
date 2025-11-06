@@ -45,7 +45,7 @@ while True:
 
         if pacienteEncontrado:
             print(f"\n¡Bienvenido/a {pacienteEncontrado.get_nombre()}!")
-            print("1. Sacar turno turno")
+            print("1. Sacar turno")
             print("2. Ver mis turnos")
             print("3. Cerrar sesión")
 
